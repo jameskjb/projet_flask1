@@ -1,0 +1,47 @@
+{%  extends "partials/_navbar.html" %}
+{% block content %}
+    <div class="form_section">
+        <div class="image">
+
+        </div>
+        <div class="form">
+        <form action="" method="post">
+            {{ form.hidden_tag()  }}
+
+                    <div>
+                            {{ form.email.label(class = "")  }} <br>
+                            {{   form.email }}
+                     </div>
+                    <div>
+                            {{ form.password.label(class = "")  }} <br>
+                            {{   form.password }}
+                     </div>
+
+                <div>
+                    {{   form.submit }}
+             </div>
+        </form>
+        <div>
+            <small>
+                Don't have an Account?  <a href=" {{   url_for('register')   }} ">  Sign up </a>
+            </small>
+        </div>
+    </div>
+</div>
+<section>
+    {% with messages = get_flashed_messages(with_categories=true) %} {% if
+        messages %} {% for category, message in messages %} {% if category ==
+        'success' %}
+        <div class="green_alert " role="alert">
+          {{ message }}
+        </div>
+        {% else %}
+        <div class="red_alert " role="alert">
+          {{ message }}
+
+        </div>
+        {% endif %} {% endfor %} {% endif %} {% endwith %}
+</section>  
+    <div>
+
+{% endblock  content  %}

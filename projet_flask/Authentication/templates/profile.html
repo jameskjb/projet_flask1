@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+            *{
+        font-family: Agency FB;
+      }
+      .navbar{
+      display: flex;
+      font-family: Agency FB;
+      }
+      .navbar h1{
+        font-size: 42px;
+        font-weight: 800px;
+        color: white;
+      }
+      .links{
+        display: flex;
+        padding: 10px;
+        margin-left: 60%;
+      }
+
+     .links  li{
+        list-style-type: none;
+        padding : 20px;
+      }
+
+      a{
+        text-decoration: none;
+        color: white;
+        font-size: 26px;
+        
+      }
+
+
+body{
+padding: 0;
+margin:0;
+background-image: url("{{url_for('static', filename = 'images/jt.jpg')}}");
+align-items: center;
+align-content: center;
+justify-content: center;
+}
+    </style>
+</head>
+<body>
+    <section class="navbar">
+        <h1>QUE POUR LA QUALITE</h1>
+        <ul class="links">
+            <li><a href="/home">Home</a></li>
+            <li><a href=" {{ url_for('logout')  }}  ">Logout</a></li>
+
+        </ul>
+        
+    </section>
+    <h1>Welcome</h1>
+<section>
+    {% with messages = get_flashed_messages(with_categories=true) %} {% if
+        messages %} {% for category, message in messages %} {% if category ==
+        'success' %}
+        <div class="green_alert " role="alert">
+          {{ message }}
+        </div>
+        {% else %}
+        <div class="red_alert " role="alert">
+          {{ message }}
+
+        </div>
+        {% endif %} {% endfor %} {% endif %} {% endwith %}
+</section>  
+</body>
+</html>
